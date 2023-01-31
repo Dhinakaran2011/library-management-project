@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link href="{% static 'css/studentregister.css' %}" rel="stylesheet">
+<body style="color:beige">
+<form action="regdata2" method="post">
+    {% csrf_token %}
+    <h5 align="center" style="color:gold"><i><u>Student Registration...</u></i></h5>
+
+<table align="center" style="color:red">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" name="name"></td>
+    </tr>
+    <tr>
+      <td>Phno</td>
+      <td><input type="number" name="phnum"></td>
+    </tr>
+    <tr>
+      <td>Sem</td>
+      <td><input type="number" name="semester"></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password" name="pass"></td>
+    </tr>
+    <tr>
+        <td>Course</td>
+        <td><select name="course">
+        {% for i in data %}
+            <option>{{i.Course_Name }}</option>
+            {% endfor %}
+        </select>
+        </td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="REGISTER" name="btnsubmit" style="background-color:green"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<body style="background-color:black">
+<form method="post">
+    {% csrf_token %}
+    <h4 style="color:brown" align="center"><i ><u>Update the details here...</u></i></h4>
+    <br>
+   <table align="center" style="color:Blue">
+       <tr>
+           <td>Studname</td>
+           <td><select name="sname">
+               <option selected>{{data.Stud_Name}}</option>
+               {% for i in s %}
+               <option>{{i.Student_Name}}</option>
+               {% endfor %}
+           </select></td>
+       </tr>
+       <tr>
+           <td>Bookname</td>
+           <td><select name="bname">
+               <option>{{data.Book_Name}}</option>
+               {% for i in b %}
+               <option>{{i.Book_Name}}</option>
+               {% endfor %}
+           </select></td>
+       </tr>
+       <tr>
+           <td>Startdate</td>
+           <td><input type="date" name="sdate"></td>
+       </tr>
+       <tr>
+           <td>Enddate</td>
+           <td><input type="date" name="edate"></td>
+       </tr>
+       <tr><td><input type="submit" name="btnsubmit" value="Submit" style="background-color:red"></td></tr>
+   </table>
+
+</form></body>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+    <h4 style="color:brown" align="center"><i><u>Update the book details here...</u></i></h4>
+<br>
+<link href="{% static 'css/update.css' %}" rel="stylesheet">
+<form method="post">
+  {% csrf_token %}
+  <table align="center" style="color:blue">
+    <tr>
+      <td>Book Name</td>
+      <td><input type="text" name="book_name" value="{{ d.Book_Name }}"></td>
+    </tr>
+    <tr>
+      <td>Author Name</td>
+      <td><input type="text" name="author_name" value="{{ d.Author_Name }}" ></td>
+    </tr>
+    <tr>
+      <td>Course</td>
+     <td> <select name="course">
+        <option selected>{{d.Course_id}}</option>
+        {% for i in data %}
+        <option>{{i.Course_Name}}</option>
+        {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td><input type="submit" name="addbook" value="ADD BOOK" style="background-color:red"></td>
+    </tr>
+
+  </table>
+</form>
+{% endblock %}

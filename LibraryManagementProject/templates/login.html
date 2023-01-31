@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div class="container">
+  <div class="top"></div>
+  <div class="bottom"></div>
+  <div class="center">
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+<body style="color:black">
+<h4 align="center" style="color:red">{{data}}</h4>
+<form action="logdata" method="post">
+  {% csrf_token %}
+  <table align="center">
+    <h3 align="center" style="color:navy"><u><i>Login Page..</i></u></h3>
+
+    <tr>
+      <td>Username</td>
+      <td><input type="text" name="txtuser" placeholder="enter your name"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="password" name="txtpass" placeholder="enter your password"></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Login" name="btnsubmit" style="background-color:red"></td><br>
+      <td><a href="{% url 'reg' %}" style="color:red">Admin SignIn</a></td>
+      <td><a href="{% url 'reg2' %}" style="color:green">Student SignIn</a></td>
+
+    </tr>
+
+
+  </table>
+</form>
+
+</body>
+  </div>
+</div>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<div align="center" style="align:left">
+    <form action="assign_data" method="post">
+        {% csrf_token %}
+        <h3 style="color:brown"><i><u>Course details...</u></i></h3>
+        <b><table style="color:blue"></b>
+            <tr>
+                <td>Stud_sem</td>
+                <td><input type="number" name="sem"></td>
+            </tr>
+            <tr>
+                <td>Stud_course</td>
+                <td><select name ="course">
+                    {% for i in data1 %}
+                    <option>{{ i.Course_Name }}</option>
+                    {% endfor %}
+                </select></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="submit" name="btnsubmit" value="Submit" style="background-color:red"></td>
+            </tr>
+        </table>
+    </form><br>
+    <br>
+</div>
+<div align="center" style="align:right">
+    <form action="readassign" method="post">
+        {% csrf_token %}
+        <h3 style="color:brown"><i><u>Reciept</u></i></h3>
+        <b><table style="color:blue"></b>
+            <tr>
+                <td>Stud_name</td>
+                <td><select name="student">
+                    {% for i in data %}
+                    <option>{{ i.Student_Name }}</option>
+                    {% endfor %}</select>
+                </td>
+            </tr>
+            <tr>
+                <td>Book_name</td>
+                <td><select name="book">
+                    {% for i in d %}
+                    <option>{{ i.Book_Name }}</option>
+                    {% endfor %}
+
+                </select></td>
+            </tr>
+            <tr>
+                <td>Startdate</td>
+                <td><input type="date" name="sdate"></td>
+            </tr>
+            <tr>
+                <td>Enddate</td>
+                <td><input type="date" name="edate"></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="submit" name="btnsubmit" value="submit" style="background-color:red"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

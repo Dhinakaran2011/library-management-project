@@ -1,0 +1,22 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+<h3 align="center"><u><i>Issued Books...</i></u></h3>
+<br>
+<center><table colspan="2" border="2" cellpadding="8">
+    <tr  style="color:purple">
+        <th>Student Name</th>
+        <th>Book Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ i.Stud_Name }}</td>
+        <td>{{ i.Book_Name }}</td>
+        <td>{{ i.Start_Date }}</td>
+        <td>{{ i.End_Date }}</td>
+
+    </tr>
+    {% endfor %}
+</table></center>
+{% endblock %}

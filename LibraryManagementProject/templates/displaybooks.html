@@ -1,0 +1,27 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<br>
+<br>
+<u><h2 align="center" style="color:brown">Books...</h2></u>
+<form method="post">
+    {% csrf_token %}
+    <table align="center" border="2" cellpadding="8" style="color:purple">
+        <u><tr>
+            <th>Bookname</th>
+            <th>Authorname</th>
+            <th>Courseid</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr></u>
+        {% for i in data %}
+        <tr style="color:black">
+            <td>{{ i.Book_Name}}</td>
+            <td>{{ i.Author_Name }}</td>
+            <td>{{ i.Course_id  }}</td>
+            <td><a href="{% url 'up' i.id %}" style="color:green">Update</a></td>
+            <td><a href="{% url 'del' i.id %}" style="color:red">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+{% endblock %}
